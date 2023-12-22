@@ -105,5 +105,18 @@ public class ChipsCreator : MonoBehaviour
 
 
 
-    public int GetCurrentPlayerTurn() => _playerTurn;
+    public int GetCurrentPlayerTurn()
+    {
+        switch (_playerTurn)
+        {
+            case 0:
+                return 1;
+                break;
+            case 1:
+                return 0;
+                break;
+        }
+
+        return 0;
+    }
 }

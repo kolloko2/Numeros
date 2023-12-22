@@ -41,11 +41,14 @@ namespace Main.Scripts.ChipMovementController
                 if (_chipInHands == null)
                 {
                     _chipInHands = chip;
+                    _chipInHands.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
                     ChipMoved?.Invoke(chip);
                   
                 }
                 else
                 {
+                    _chipInHands.transform.localScale = new Vector3(1f, 1f, 1f);
+
                     if (chip.GetComponent<Number>() != null) // Это номер
                     {
                         if (_chipInHands.GetComponent<Number>() != null) // номер на номер
@@ -55,6 +58,7 @@ namespace Main.Scripts.ChipMovementController
                             (chip.GetComponent<Number>().CurrentSlot, _chipInHands.GetComponent<Number>().CurrentSlot) =
                                 (_chipInHands.GetComponent<Number>().CurrentSlot,
                                     chip.GetComponent<Number>().CurrentSlot);
+                            
                         }
                         else // номер на знак
                         {
@@ -109,19 +113,19 @@ namespace Main.Scripts.ChipMovementController
             panel.SetActive(true);
             if (_intfirstplayerscore > _intsecondplayerscore)
             {
-                finishTMP.text = ("Выиграл игрок 1" + "УРА УРА УРА");
+                finishTMP.text = ("Выиграл игрок 1");
                 
 
             }
             else if (_intfirstplayerscore < _intsecondplayerscore)
             {
-                finishTMP.text = ("Выиграл игрок 1" + "УРА УРА УРА");
+                finishTMP.text = ("Выиграл игрок 2");
                 
 
             }
             else if (_intfirstplayerscore == _intsecondplayerscore)
             {
-                finishTMP.text = ("Выиграла дружба");
+                finishTMP.text = ("Победила дружба");
                 
 
             }
@@ -136,6 +140,8 @@ namespace Main.Scripts.ChipMovementController
             _chipInHands.GetComponent<LayoutElement>().ignoreLayout = true;
             _chipInHands.GetComponent<Number>()?.SetIsPlaced(true);
             _chipInHands.GetComponent<Sign>()?.SetIsPlaced(true);
+            _chipInHands.transform.localScale = new Vector3(1f, 1f, 1f);
+
             _chipInHands = null;
         }
 
@@ -167,7 +173,8 @@ namespace Main.Scripts.ChipMovementController
 
             _chipInHands.GetComponent<Image>().DOFade(255,0.5f);
             
-            
+            _chipInHands.transform.localScale = new Vector3(1f, 1f, 1f);
+
             ClearChipInHands();
            
         }

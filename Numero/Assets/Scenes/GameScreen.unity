@@ -691,7 +691,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+  m_BackGroundColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 584247114}
   - component: {fileID: 584247113}
   m_Layer: 5
-  m_Name: "\u0422\u0435\u043A\u0443\u0449\u0430\u044F (1)"
+  m_Name: "\u0422\u0435\u043A\u0443\u0449\u0430\u044F"
   m_TagString: tmp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 604941011}
   - component: {fileID: 604941010}
   m_Layer: 5
-  m_Name: "\u0422\u0435\u043A\u0443\u0449\u0430\u044F (2)"
+  m_Name: "\u0422\u0435\u043A\u0443\u0449\u0430\u044F"
   m_TagString: tmp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2131,7 +2131,7 @@ Transform:
   m_GameObject: {fileID: 1396146563}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 148, y: 880, z: -21600.002}
+  m_LocalPosition: {x: 150, y: 880, z: -21600.002}
   m_LocalScale: {x: 167.87521, y: 167.87521, z: 167.87521}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2500,8 +2500,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u044B\u0438\u0433\u0440\u0430\u043B \u0438\u0433\u0440\u043E\u043A
-    1 \n\u0423\u0420\u0410 \u0423\u0420\u0410 \u0423\u0420\u0410"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd1d6b171ebe7fc408c4d8d42cf67fd7, type: 2}
   m_sharedMaterial: {fileID: -4566356130612113219, guid: bd1d6b171ebe7fc408c4d8d42cf67fd7, type: 2}
@@ -2891,7 +2890,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 419106926068789854, guid: 9319e1f4e8e2c934eaadf9724bbb6dc9, type: 3}
       propertyPath: m_Name
-      value: "\u0422\u0435\u043A\u0443\u0449\u0430\u044F (1)"
+      value: "\u0422\u0435\u043A\u0443\u0449\u0430\u044F"
       objectReference: {fileID: 0}
     - target: {fileID: 1368847462988937191, guid: 9319e1f4e8e2c934eaadf9724bbb6dc9, type: 3}
       propertyPath: m_text

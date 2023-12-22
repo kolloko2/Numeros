@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.13333333
+  m_Size: 0.13333334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1440,8 +1440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.6, y: 537}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -443, y: 520}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941336819
 MonoBehaviour:
@@ -2031,7 +2031,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 0.9825283, b: 0.8915094, a: 0}
+  m_BackGroundColor: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2574,8 +2574,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1317671830}
     m_Modifications:
     - target: {fileID: 4576667758220799873, guid: 689e895ca09ca34418db0b77c72b6ef6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576667758220799873, guid: 689e895ca09ca34418db0b77c72b6ef6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576667758220799873, guid: 689e895ca09ca34418db0b77c72b6ef6, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576667758220799873, guid: 689e895ca09ca34418db0b77c72b6ef6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576667758220799873, guid: 689e895ca09ca34418db0b77c72b6ef6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5062514779110298307, guid: 689e895ca09ca34418db0b77c72b6ef6, type: 3}
       propertyPath: m_Pivot.x

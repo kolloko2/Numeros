@@ -26,6 +26,7 @@ namespace Main.Scripts.Checker
 
         public void AddScore(int playerTurn)
         {
+            Debug.Log(playerTurn);
             int x = 0;
 
             foreach (GameObject slot in _slotController.GetFieldSlots())
