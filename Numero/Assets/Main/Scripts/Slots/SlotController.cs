@@ -20,6 +20,7 @@ namespace Main.Scripts.Slots
             gameObject.GetComponent<GridLayoutGroup>().constraintCount = fieldHight;
             _fieldSlots = _slotFieldCreator.GetSlotField();
             _expressionChecker = new ExpressionChecker(this, _chipsCreator);
+            print(gameObject.name);
         }
 
       

@@ -22,6 +22,7 @@ namespace Main.Scripts.ChipMovementController
         [SerializeField] private TextMeshProUGUI _finishTMP;
         private void Start()
         {
+            print(gameObject.name);
             chipPicker = new ChipPicker(_firstplayerscore,_secondplayerscore);
             chipMover = new ChipMover(chipPicker);
         }
@@ -42,6 +43,7 @@ namespace Main.Scripts.ChipMovementController
                     ClickedGameObject = hit.collider.gameObject;
                     RayCastHitted?.Invoke(ClickedGameObject);
                 }
+                
             }
         }
         
@@ -51,13 +53,7 @@ namespace Main.Scripts.ChipMovementController
             
         }
 
-        public void ToMainScreen()
-        {
-           GameBootstrapper gameBootstrapper = DIContainer.Resolve<GameBootstrapper>();
-           gameBootstrapper.Game.StateMachine.Enter<LoadSceneState, string>(Constans.MainMenuScene);
-           chipPicker.ClearChipInHands();
-           
-        }
+  
 
         
         

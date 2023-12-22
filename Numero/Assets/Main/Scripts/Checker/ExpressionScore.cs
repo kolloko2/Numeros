@@ -64,7 +64,6 @@ namespace Main.Scripts.Checker
                             }
 
                            
-                            Debug.Log(slot);
                           
                             
                             break;

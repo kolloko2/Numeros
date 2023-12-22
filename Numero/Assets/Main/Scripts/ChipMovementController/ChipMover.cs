@@ -2,6 +2,8 @@ using System;
 using Infrastructure;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 
 namespace Main.Scripts.ChipMovementController
 {
@@ -24,8 +26,10 @@ namespace Main.Scripts.ChipMovementController
             {
                 if (_chipPicker.GetChipInHands() != null & !slot.GetComponent<Slot>().Pinned)
                 {
-                    _chipPicker.GetChipInHands().transform.position = slot.transform.position;
+             //       _chipPicker.GetChipInHands().transform.position = slot.transform.position;
+                    _chipPicker.GetChipInHands().transform.DOMove(slot.transform.position,1);
                     _chipPicker.GetChipInHands().GetComponent<AChip>().CurrentSlot = slot;
+                    
 
                     slot.GetComponent<Slot>()
                         .SetCurrentValue(_chipPicker.GetChipInHands().GetComponent<AChip>().CurrentValueString,

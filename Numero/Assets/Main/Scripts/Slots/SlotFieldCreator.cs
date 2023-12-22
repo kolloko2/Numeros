@@ -41,7 +41,7 @@ public class SlotFieldCreator
             }
         }
 
-        Debug.Log(_slots);
+     
         FieldCreated?.Invoke(_slots);
     }
 

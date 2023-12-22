@@ -1,9 +1,14 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
+using Infrastructure;
 using Main.Scripts.Checker;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 namespace Main.Scripts.ChipMovementController
 {
@@ -14,16 +19,20 @@ namespace Main.Scripts.ChipMovementController
         private TextMeshProUGUI _secondplayerscore;
         private int _intfirstplayerscore;
         private int _intsecondplayerscore;
+        private GameBootstrapper _gameBootstrapper;
         public static Action<GameObject> ChipMoved;
-
         public ChipPicker(TextMeshProUGUI  tmp1, TextMeshProUGUI  tmp2)
         {
+            _gameBootstrapper = DIContainer.Resolve<GameBootstrapper>();
             ChipClicker.RayCastHitted += PickChip;
             _firstplayerscore = tmp1;
             _secondplayerscore = tmp2;
             ExpressionScore.ScoreChanged += ScoreChanged;
+           Debug.Log(123);
+
         }
 
+        
        
         private void PickChip(GameObject chip)
         {
@@ -33,6 +42,7 @@ namespace Main.Scripts.ChipMovementController
                 {
                     _chipInHands = chip;
                     ChipMoved?.Invoke(chip);
+                  
                 }
                 else
                 {
@@ -85,8 +95,7 @@ namespace Main.Scripts.ChipMovementController
 
         public void ScoreChanged(int playerOneScore, int playerTwoScore)
         {
-            
-            
+
             _firstplayerscore.text = ($"{playerOneScore}");
             _secondplayerscore.text = ($"{playerTwoScore}");
 
@@ -134,6 +143,17 @@ namespace Main.Scripts.ChipMovementController
 
         public void ChipBack()
         {      
+            _gameBootstrapper.StartCoroutine(ChipBackCoroutine());
+
+            
+        }
+
+        IEnumerator ChipBackCoroutine()
+        {
+            _chipInHands.GetComponent<Image>().DOFade(0,0.5f);
+
+            yield return new WaitForSeconds(0.5f);
+            
             _chipInHands.GetComponent<AChip>().CurrentSlot = null;
             ChipMoved?.Invoke(_chipInHands);
             _chipInHands.GetComponent<LayoutElement>().ignoreLayout = false;
@@ -143,8 +163,13 @@ namespace Main.Scripts.ChipMovementController
             {
                 GameObject.Destroy(_chipInHands);
             }
-            ClearChipInHands();
+
+
+            _chipInHands.GetComponent<Image>().DOFade(255,0.5f);
             
+            
+            ClearChipInHands();
+           
         }
 
         public void ClearChipInHands() => _chipInHands = null;

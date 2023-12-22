@@ -89,7 +89,7 @@ public class ChipsCreator : MonoBehaviour
         for (int i = 0; i < _chipsCount + _signsCount - 1; i++)
         {
             _chipsGameObjects[player, i].SetActive(true);
-            Debug.Log(i);
+           
         }
     }
 
