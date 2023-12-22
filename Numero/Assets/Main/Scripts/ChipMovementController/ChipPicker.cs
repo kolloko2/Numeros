@@ -165,7 +165,7 @@ namespace Main.Scripts.ChipMovementController
             _chipInHands.GetComponent<LayoutElement>().ignoreLayout = false;
             
 
-            if (_chipInHands.GetComponent<AChip>().CurrentValueString == "=")
+            if (_chipInHands.GetComponent<AChip>().CurrentValueString == "=" & _chipInHands.GetComponent<AChip>().IsPlaced==true)
             {
                 GameObject.Destroy(_chipInHands);
             }

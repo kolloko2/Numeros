@@ -21,27 +21,19 @@ public class ChipRavnoCreater : MonoBehaviour
         _ravnoChip = Resources.Load<GameObject>(Constans.SignPath);
         _ravnoChip.GetComponent<Sign>().SignNumber = 4;
         ChipMover.ChipMoved += CheckIfNeedToCreateAnotherRavno;
-        ChipMover.ChipRavnoDeleted += CreateRavnoAfterDelete;
+
         CreateRavno();
     }
 
     private void CheckIfNeedToCreateAnotherRavno(GameObject movedChip)
     {
-        bool tmpBool = true; 
-        
-        foreach ( AChip chip in GameObject.FindWithTag(Constans.ChipsTag).GetComponentsInChildren<AChip>())
+        if (movedChip.GetComponent<AChip>().CurrentValueString == "=")
         {
-            if (chip.CurrentValueString == "=" & chip.GameObject().activeSelf & !chip.IsPlaced)
-            {
-                tmpBool &= false;
-            }
-        }
-        
-        
-        if (tmpBool)
-        {
+            
             CreateRavno();
         }
+      
+  
     }
 
     private void CreateRavno()
@@ -51,22 +43,6 @@ public class ChipRavnoCreater : MonoBehaviour
         
     }
 
-    private void CreateRavnoAfterDelete()
-    {
-        bool tmpBool=true;
-        foreach ( AChip chip in GameObject.FindWithTag(Constans.ChipsTag).GetComponentsInChildren<AChip>())
-        {
-            if (chip.CurrentValueString == "=" & chip.GameObject().activeSelf & !chip.IsPlaced)
-            {
-                tmpBool = false;
-            }
-        }
-
-        if (tmpBool)
-        {
-            CreateRavno();
-        }
-    }
-    
+ 
     
 }
