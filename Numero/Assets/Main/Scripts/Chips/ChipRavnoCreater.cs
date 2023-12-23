@@ -27,8 +27,8 @@ public class ChipRavnoCreater : MonoBehaviour
 
     private void CheckIfNeedToCreateAnotherRavno(GameObject movedChip)
     {
-        if (movedChip.GetComponent<AChip>().CurrentValueString == "=")
-        {
+        if (movedChip.GetComponent<AChip>().CurrentValueString == "=" & !movedChip.GetComponent<AChip>().IsPlaced)
+        { 
             
             CreateRavno();
         }

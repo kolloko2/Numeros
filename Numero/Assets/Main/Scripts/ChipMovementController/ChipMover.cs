@@ -42,10 +42,7 @@ namespace Main.Scripts.ChipMovementController
             }
             else if (slot.CompareTag(Constans.BackgroundTag) & _chipPicker.GetChipInHands() != null)
             {
-                if (_chipPicker.GetChipInHands().GetComponent<AChip>().CurrentValueString == "=")
-                {
-                    ChipRavnoDeleted?.Invoke();
-                }
+
           
                 _chipPicker.ChipBack();
             
