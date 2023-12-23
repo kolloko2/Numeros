@@ -45,10 +45,10 @@ namespace Main.Scripts.ChipMovementController
                 }
                 else
                 {
-                    if (_chipInHands.GetComponent<AChip>().CurrentValueString == "=")
+                    if (_chipInHands.GetComponent<AChip>().CurrentValueString == "=" | chip.GetComponent<AChip>().CurrentValueString=="=") 
                     {
-                        GameObject.Destroy(_chipInHands);
                     }
+                    
                     else
                     {
                         _chipInHands.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -103,10 +103,10 @@ namespace Main.Scripts.ChipMovementController
                         (chip.transform.position, _chipInHands.transform.position) =
                             (_chipInHands.transform.position, chip.transform.position);
 
-
+                        _chipInHands = null;
                      
                     }
-                    _chipInHands = null;
+
                 }
             }
         }

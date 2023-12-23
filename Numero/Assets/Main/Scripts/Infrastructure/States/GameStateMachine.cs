@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Infrastructure.Factory;
+
 using Infrastructure.Services;
 using Logic;
 
@@ -16,7 +16,7 @@ namespace Infrastructure.States
             _states = new Dictionary<Type, IExitableState>()
             {
                 { typeof(BootstrapState), new BootstrapState(this, sceneLoader, services) },
-                { typeof(LoadSceneState), new LoadSceneState(this, sceneLoader, curtain, services.Single<IGameFactory>()) },
+                { typeof(LoadSceneState), new LoadSceneState(this, sceneLoader, curtain) },
                 { typeof(GameLoopState), new GameLoopState(this) },
             };
         }

@@ -1,5 +1,4 @@
-﻿using Infrastructure.AssetManagement;
-using Infrastructure.Factory;
+﻿
 using Infrastructure.Services;
 
 using Application = UnityEngine.Device.Application;
@@ -40,8 +39,7 @@ namespace Infrastructure.States
         private void RegisterServices()
         {
            
-            _services.RegisterSingle<IAssets>(new AssetsProvider());
-            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>()));
+
         }
 
        
