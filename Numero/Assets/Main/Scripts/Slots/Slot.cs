@@ -14,6 +14,7 @@ public class Slot : MonoBehaviour
     public int CheckTimes = 0;
     public bool Pinned;
 
+    public bool Busy;
     // Start is called before the first frame update
 
     private void OnEnable() => ChipPicker.ChipMoved += ChipMoved;

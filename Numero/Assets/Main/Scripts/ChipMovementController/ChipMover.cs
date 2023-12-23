@@ -24,12 +24,18 @@ namespace Main.Scripts.ChipMovementController
         {
             if (slot.GetComponent<Slot>() != null)
             {
-                if (_chipPicker.GetChipInHands() != null & !slot.GetComponent<Slot>().Pinned)
+                if (_chipPicker.GetChipInHands() != null & !slot.GetComponent<Slot>().Pinned & !slot.GetComponent<Slot>().Busy)
                 {
-             //       _chipPicker.GetChipInHands().transform.position = slot.transform.position;
-                    _chipPicker.GetChipInHands().transform.DOMove(slot.transform.position,1);
+                    if (_chipPicker.GetChipInHands().GetComponent<AChip>().CurrentSlot != null)
+                    {
+                    _chipPicker.GetChipInHands().GetComponent<AChip>().CurrentSlot.GetComponent<Slot>().Busy = false;
+                        
+                    }
+                    slot.GetComponent<Slot>().Busy = true;
+                    //       _chipPicker.GetChipInHands().transform.position = slot.transform.position;
+                    _chipPicker.GetChipInHands().transform.DOMove(slot.transform.position, 1);
                     _chipPicker.GetChipInHands().GetComponent<AChip>().CurrentSlot = slot;
-                    
+
 
                     slot.GetComponent<Slot>()
                         .SetCurrentValue(_chipPicker.GetChipInHands().GetComponent<AChip>().CurrentValueString,
@@ -37,15 +43,11 @@ namespace Main.Scripts.ChipMovementController
                     ChipMoved?.Invoke(_chipPicker.GetChipInHands());
 
                     _chipPicker.ChipPlaced();
-
                 }
             }
             else if (slot.CompareTag(Constans.BackgroundTag) & _chipPicker.GetChipInHands() != null)
             {
-
-          
                 _chipPicker.ChipBack();
-            
             }
         }
     }
