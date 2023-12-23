@@ -168,7 +168,11 @@ namespace Main.Scripts.ChipMovementController
             }
 
             yield return new WaitForSeconds(0.5f);
+            if (_chipInHands.GetComponent<AChip>().CurrentSlot != null)
+            {
             _chipInHands.GetComponent<AChip>().CurrentSlot.GetComponent<Slot>().Busy = false;
+                
+            }
             _chipInHands.GetComponent<AChip>().CurrentSlot = null;
             ChipMoved?.Invoke(_chipInHands);
             _chipInHands.GetComponent<LayoutElement>().ignoreLayout = false;
