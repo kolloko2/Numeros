@@ -24,13 +24,15 @@ namespace Main.Scripts.ChipMovementController
         {
             if (slot.GetComponent<Slot>() != null)
             {
-                if (_chipPicker.GetChipInHands() != null & !slot.GetComponent<Slot>().Pinned & !slot.GetComponent<Slot>().Busy)
+                if (_chipPicker.GetChipInHands() != null & !slot.GetComponent<Slot>().Pinned &
+                    !slot.GetComponent<Slot>().Busy)
                 {
                     if (_chipPicker.GetChipInHands().GetComponent<AChip>().CurrentSlot != null)
                     {
-                    _chipPicker.GetChipInHands().GetComponent<AChip>().CurrentSlot.GetComponent<Slot>().Busy = false;
-                        
+                        _chipPicker.GetChipInHands().GetComponent<AChip>().CurrentSlot.GetComponent<Slot>().Busy =
+                            false;
                     }
+
                     slot.GetComponent<Slot>().Busy = true;
                     //       _chipPicker.GetChipInHands().transform.position = slot.transform.position;
                     _chipPicker.GetChipInHands().transform.DOMove(slot.transform.position, 1);

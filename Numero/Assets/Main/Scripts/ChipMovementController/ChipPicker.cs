@@ -6,6 +6,7 @@ using Infrastructure;
 using Main.Scripts.Checker;
 using TMPro;
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,10 +46,11 @@ namespace Main.Scripts.ChipMovementController
                 }
                 else
                 {
-                    if (_chipInHands.GetComponent<AChip>().CurrentValueString == "=" | chip.GetComponent<AChip>().CurrentValueString=="=") 
+                    if (_chipInHands.GetComponent<AChip>().CurrentValueString == "=" |
+                        chip.GetComponent<AChip>().CurrentValueString == "=")
                     {
                     }
-                    
+
                     else
                     {
                         _chipInHands.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -104,9 +106,7 @@ namespace Main.Scripts.ChipMovementController
                             (_chipInHands.transform.position, chip.transform.position);
 
                         _chipInHands = null;
-                     
                     }
-
                 }
             }
         }
@@ -153,37 +153,34 @@ namespace Main.Scripts.ChipMovementController
 
         public void ChipBack()
         {
-            _gameBootstrapper.StartCoroutine(ChipBackCoroutine());
-        }
-
-        IEnumerator ChipBackCoroutine()
-        {
-            _chipInHands.GetComponent<Image>().DOFade(0, 0.5f);
-           
             if (_chipInHands.GetComponent<AChip>().CurrentValueString == "=" &
                 _chipInHands.GetComponent<AChip>().IsPlaced == true)
             {
                 GameObject.Destroy(_chipInHands);
-                yield break;
+               
             }
-
-            yield return new WaitForSeconds(0.5f);
+            else
+            {
+                
+            Debug.Log(_chipInHands);
             if (_chipInHands.GetComponent<AChip>().CurrentSlot != null)
             {
-            _chipInHands.GetComponent<AChip>().CurrentSlot.GetComponent<Slot>().Busy = false;
-                
+                _chipInHands.GetComponent<AChip>().CurrentSlot.GetComponent<Slot>().Busy = false;
             }
+
             _chipInHands.GetComponent<AChip>().CurrentSlot = null;
             ChipMoved?.Invoke(_chipInHands);
             _chipInHands.GetComponent<LayoutElement>().ignoreLayout = false;
 
 
-            _chipInHands.GetComponent<Image>().DOFade(255, 0.5f);
-
             _chipInHands.transform.localScale = new Vector3(1f, 1f, 1f);
 
             ClearChipInHands();
+            }
+
+
         }
+
 
         public void ClearChipInHands() => _chipInHands = null;
     }
